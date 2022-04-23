@@ -1,0 +1,11 @@
+name: Test
+on:
+  push:
+    branches: [main]
+jobs:
+  cli:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh api -H "Accept: application/vnd.github.v3+json" /repos/jayground8/poc/contents/README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
